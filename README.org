@@ -1,0 +1,5 @@
+#+title: Readme
+
+A simple immediate mode UI written in Jai.
+
+Based on the RectCut method: https://halt.software/p/rectcut-for-dead-simple-ui-layouts
