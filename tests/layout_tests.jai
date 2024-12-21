@@ -1,11 +1,11 @@
 #import "Assertive";
 
-chop :: #import,file "../chopSUI.jai";
+sui :: #import "chopSUI";
 
-cut_left_positive_only_test :: ()
+chop_left_positive_only_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .LEFT, 50);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .LEFT, 50);
 
     assert_true(ok);
 
@@ -16,10 +16,10 @@ cut_left_positive_only_test :: ()
     assert_equal(layout.x_max, 100);
 } @sui_test
 
-cut_left_negative_and_positive_test :: ()
+chop_left_negative_and_positive_test :: ()
 {
-    layout := chop.Box.{-100, 100, -100, 100};
-    ok, piece := chop.cut(*layout, .LEFT, 50);
+    layout := sui.Box.{-100, 100, -100, 100};
+    ok, piece := sui.chop(*layout, .LEFT, 50);
 
     assert_true(ok);
 
@@ -30,10 +30,10 @@ cut_left_negative_and_positive_test :: ()
     assert_equal(layout.x_max, 100);
 } @sui_test
 
-cut_left_barely_pass_test :: ()
+chop_left_barely_pass_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .LEFT, 100);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .LEFT, 100);
 
     assert_true(ok);
 
@@ -44,18 +44,18 @@ cut_left_barely_pass_test :: ()
     assert_equal(layout.x_max, 100);
 } @sui_test
 
-cut_left_barely_fail_test :: ()
+chop_left_barely_fail_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .LEFT, 101);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .LEFT, 101);
 
     assert_false(ok);
 } @sui_test
 
-cut_right_positive_only_test :: ()
+chop_right_positive_only_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .RIGHT, 50);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .RIGHT, 50);
 
     assert_true(ok);
 
@@ -66,10 +66,10 @@ cut_right_positive_only_test :: ()
     assert_equal(layout.x_max, 50);
 } @sui_test
 
-cut_right_negative_and_positive_test :: ()
+chop_right_negative_and_positive_test :: ()
 {
-    layout := chop.Box.{-100, 100, -100, 100};
-    ok, piece := chop.cut(*layout, .RIGHT, 150);
+    layout := sui.Box.{-100, 100, -100, 100};
+    ok, piece := sui.chop(*layout, .RIGHT, 150);
 
     assert_true(ok);
 
@@ -80,10 +80,10 @@ cut_right_negative_and_positive_test :: ()
     assert_equal(layout.x_max, -50);
 } @sui_test
 
-cut_right_barely_pass_test :: ()
+chop_right_barely_pass_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .RIGHT, 100);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .RIGHT, 100);
 
     assert_true(ok);
 
@@ -94,18 +94,18 @@ cut_right_barely_pass_test :: ()
     assert_equal(layout.x_max, 0);
 } @sui_test
 
-cut_right_barely_fail_test :: ()
+chop_right_barely_fail_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .RIGHT, 101);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .RIGHT, 101);
 
     assert_false(ok);
 } @sui_test
 
-cut_up_positive_only_test :: ()
+chop_up_positive_only_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .UP, 50);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .UP, 50);
 
     assert_true(ok);
 
@@ -116,10 +116,10 @@ cut_up_positive_only_test :: ()
     assert_equal(layout.y_max, 50);
 } @sui_test
 
-cut_up_negative_and_positive_test :: ()
+chop_up_negative_and_positive_test :: ()
 {
-    layout := chop.Box.{-100, 100, -100, 100};
-    ok, piece := chop.cut(*layout, .UP, 150);
+    layout := sui.Box.{-100, 100, -100, 100};
+    ok, piece := sui.chop(*layout, .UP, 150);
 
     assert_true(ok);
 
@@ -130,10 +130,10 @@ cut_up_negative_and_positive_test :: ()
     assert_equal(layout.y_max, -50);
 } @sui_test
 
-cut_up_barely_pass_test :: ()
+chop_up_barely_pass_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .UP, 100);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .UP, 100);
 
     assert_true(ok);
 
@@ -144,18 +144,18 @@ cut_up_barely_pass_test :: ()
     assert_equal(layout.y_max, 0);
 } @sui_test
 
-cut_up_barely_fail_test :: ()
+chop_up_barely_fail_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .UP, 101);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .UP, 101);
 
     assert_false(ok);
 } @sui_test
 
-cut_down_positive_only_test :: ()
+chop_down_positive_only_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .DOWN, 50);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .DOWN, 50);
 
     assert_true(ok);
 
@@ -166,10 +166,10 @@ cut_down_positive_only_test :: ()
     assert_equal(layout.y_max, 100);
 } @sui_test
 
-cut_down_negative_and_positive_test :: ()
+chop_down_negative_and_positive_test :: ()
 {
-    layout := chop.Box.{-100, 100, -100, 100};
-    ok, piece := chop.cut(*layout, .DOWN, 50);
+    layout := sui.Box.{-100, 100, -100, 100};
+    ok, piece := sui.chop(*layout, .DOWN, 50);
 
     assert_true(ok);
 
@@ -180,10 +180,10 @@ cut_down_negative_and_positive_test :: ()
     assert_equal(layout.y_max, 100);
 } @sui_test
 
-cut_down_barely_pass_test :: ()
+chop_down_barely_pass_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .DOWN, 100);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .DOWN, 100);
 
     assert_true(ok);
 
@@ -194,10 +194,14 @@ cut_down_barely_pass_test :: ()
     assert_equal(layout.y_max, 100);
 } @sui_test
 
-cut_down_barely_fail_test :: ()
+chop_down_barely_fail_test :: ()
 {
-    layout := chop.Box.{0, 100, 0, 100};
-    ok, piece := chop.cut(*layout, .DOWN, 101);
+    layout := sui.Box.{0, 100, 0, 100};
+    ok, piece := sui.chop(*layout, .DOWN, 101);
 
     assert_false(ok);
 } @sui_test
+
+// Local Variables:
+// compile-command: "jai build_tests.jai - layout_tests && ./layout_tests"
+// End:

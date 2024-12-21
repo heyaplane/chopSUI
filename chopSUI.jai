@@ -11,7 +11,7 @@ Direction :: enum u32
     DOWN;
 }
 
-cut :: (box: *Box, dir: Direction, size: u32) -> bool, Box
+chop :: (box: *Box, dir: Direction, size: u32) -> bool, Box
 {
     if dir ==
     {
@@ -46,6 +46,16 @@ cut :: (box: *Box, dir: Direction, size: u32) -> bool, Box
         case;
             return false, .{};
     }
+}
+
+get_x_size :: inline (box: Box) -> int
+{
+    return box.x_max - box.x_min + 1;
+}
+
+get_y_size :: inline (box: Box) -> int
+{
+    return box.y_max - box.y_min + 1;
 }
 
 

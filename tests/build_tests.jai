@@ -11,19 +11,21 @@
     assert(args.count == 3, "Specify one file to build!\n");
 
     test_file := args[args.count - 1];
-    rel_path := sprint("tests/%.jai", test_file);
+    rel_path := sprint("%.jai", test_file);
     _, path_exists := get_absolute_path(rel_path);
 
     assert(path_exists);
 
     modules_paths: [..] string;
     modules_dir := "/home/egret/projects/jai/my_modules";
+    root_modules_dir := "../";
     array_add(*modules_paths, modules_dir);
+    array_add(*modules_paths, root_modules_dir);
     array_add(*modules_paths, ..options.import_path);
     options.import_path = modules_paths;
 
     options.output_executable_name = test_file;
-    options.output_path = "tests/";
+    options.output_path = "./";
     set_build_options(options, w);
 
     compiler_begin_intercept(w);
